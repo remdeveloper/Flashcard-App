@@ -30,13 +30,13 @@ function Study() {
         }
         setCardContent(json.cards[currentCard].front);
       });
-  }, []);
+  }, [currentCard, deckId]);
 
   useEffect(() => {
     if (cardsList.length > 0) {
       setCardContent(cardsList[currentCard].front);
     }
-  }, [currentCard]);
+  }, [currentCard, cardsList]);
 
   const flipCard = () => {
     if (isFlipped) {

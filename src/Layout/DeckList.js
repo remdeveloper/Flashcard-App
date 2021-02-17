@@ -12,13 +12,7 @@ import {
 function DeckList(props) {
   const [deckList, setDeckList] = useState([]);
 
-  // useEffect(() => {
-  //   async function loadDeck() {
-  //     let allDecks = await listDecks();
-  //     setDeckList(allDecks);
-  //   }
-  //   loadDeck();
-  // }, []);
+
   useEffect(loadDecks, []);
 
   const handleDeleteClick = (deckId) => {
@@ -33,37 +27,13 @@ function DeckList(props) {
   };
   function loadDecks() {
     listDecks().then(setDeckList)
-    //setDeckList(allDecks);
+ 
   }
-  // const [decks, setDecks] = useState([]);
-  // useEffect(loadDecks, []);
 
-  // function deleteHandler(deckId) {
-  //   const confirmed = window.confirm(
-  //     "Delete this deck?\n\nYou will not be able to recover it."
-  //   );
-  //   if (confirmed) {
-  //     deleteDeck(deckId).then(loadDecks);
-  //   }
-  // }
-
-  // function loadDecks() {
-  //   listDecks().then(setDecks);
-  // }
 
 
   const mappedDecks = deckList.map((deck) => {
-    // return (
-    //   <DeckList
-    //     key={deck.id}
-    //     deck={deck} 
-    //     description={deck.description}
-    //     cards={deck.cards}
-    //     id={deck.id}
-    //     name={deck.name}
-    //     handleDeleteDeck={handleDeleteDeck}
-    //   />
-    // );
+
   return (
     <div className="card" key={deck.id}>
       <div className="card-body" >
@@ -102,3 +72,4 @@ function DeckList(props) {
 }
 
 export default DeckList;
+  

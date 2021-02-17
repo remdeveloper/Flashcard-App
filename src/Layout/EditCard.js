@@ -22,7 +22,7 @@ function EditCard(props) {
     };
     loadDeck();
     loadCard();
-  }, []);
+  }, [deckId, cardId]);
 
   const handleEditCard = async (e) => {
     e.preventDefault();

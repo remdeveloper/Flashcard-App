@@ -1,31 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import NotFound from "./NotFound";
-import Home from "./Home";
-import Study from "./Study";
+
 import {
-  stripCards,
-  listDecks,
-  createDeck,
+
   readDeck,
-  updateDeck,
-  deleteDeck,
-  listCards,
-  createCard,
-  readCard,
-  updateCard,
-  deleteCard,
+
 } from "../utils/api/index";
 import {
   BrowserRouter as Router,
   Link,
-  NavLink,
-  Route,
-  Switch,
-  useLocation,
-  useHistory,
+
   useParams,
-  useRouteMatch,
+
 } from "react-router-dom";
 
 function EditDeck(props) {
@@ -40,19 +25,19 @@ function EditDeck(props) {
       setDeckData(deck);
     };
     loadDeck();
-  }, []);
+  }, [deckId]);
 
   return (
     <div>      
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li class="breadcrumb-item">
-            <a href="#">{deckData.name}</a>
+          <li className="breadcrumb-item">
+            <a href={`/decks/${deckId}`}>{deckData.name}</a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">
+          <li className="breadcrumb-item active" aria-current="page">
             Edit Deck
           </li>
         </ol>
@@ -66,7 +51,7 @@ function EditDeck(props) {
           </label>
           <input
             type="text"
-            value={deckData.name}
+            defaultValue={deckData.name}
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
@@ -80,7 +65,7 @@ function EditDeck(props) {
             className="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
-            value={deckData.description}
+            defaultValue={deckData.description}
           ></textarea>
         </div>
 

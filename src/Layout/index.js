@@ -6,34 +6,22 @@ import Study from "./Study";
 import NewDeck from "./NewDeck";
 import DeckOverview from "./DeckOverview";
 import EditDeck from "./EditDeck";
-import DeckList from "./DeckList";
+
 import AddCard from "./AddCard"
 import EditCard from "./EditCard";
 
 
 import {
-  stripCards,
+
   listDecks,
-  createDeck,
-  readDeck,
-  updateDeck,
-  deleteDeck,
-  listCards,
-  createCard,
-  readCard,
-  updateCard,
-  deleteCard,
+
 } from "../utils/api/index";
 import {
   BrowserRouter as Router,
-  Link,
-  NavLink,
+
   Route,
   Switch,
-  useLocation,
-  useHistory,
-  useParams,
-  useRouteMatch,
+
 } from "react-router-dom";
 
 function Layout() {
