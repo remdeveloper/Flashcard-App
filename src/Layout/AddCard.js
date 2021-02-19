@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 
 import { readDeck, createCard } from "../utils/api/index";
 import { BrowserRouter as Router, Link, useParams } from "react-router-dom";
+import Form from "./Form"
 
 function AddCard(props) {
   const { deckId } = useParams(); //takes the deckID from the url
 
   const [frontText, setFrontText] = useState("");
-  const [backText, setBackText  ] = useState("");
+  const [backText, setBackText] = useState("");
   const [deckName, setDeckName] = useState("");
 
   //code for showing deck name and description
@@ -57,42 +58,14 @@ function AddCard(props) {
       </nav>
       <h3>{deckName}: Add Card</h3>
 
-      <form>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Front
-          </label>
-          <textarea
-            placeholder="Front side of card"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            row="2"
-            value={frontText}
-            onChange={handleFrontChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleFormControlTextarea1" className="form-label">
-            Back
-          </label>
-          <textarea
-            className="form-control"
-            id="exampleFormControlTextarea1"
-            rows="2"
-            placeholder="Back side of card"
-            value={backText}
-            onChange={handleBackChange}
-          ></textarea>
-        </div>
-
-        <Link to={`/decks/${deckId}`} className="btn btn-secondary">
-          {``} {``} Done
-        </Link>
-        <button onClick={handleAddCard} className="btn btn-primary">
-          {``} {``} Save
-        </button>
-      </form>
+      <Form
+        handleFrontChange={handleFrontChange}
+        handleBackChange={handleBackChange}
+        frontText={frontText}
+        backText={backText}
+        handleOnSave={handleAddCard} 
+        deckId={deckId}
+      />
     </div>
   );
 }

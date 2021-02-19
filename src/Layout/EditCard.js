@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { updateCard, readDeck, readCard } from "../utils/api/index";
 import { Link, useParams, useHistory } from "react-router-dom";
+import Form from "./Form"
 
 function EditCard(props) {
   const { deckId, cardId } = useParams(); 
@@ -63,40 +64,15 @@ function EditCard(props) {
       </nav>
       <h3>{deckName}: Edit Card</h3>
 
-      <form>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Front
-          </label>
-          <textarea
-            placeholder="Front side of card"
-            className="form-control"
-            aria-describedby="emailHelp"
-            row="2"
-            value={frontText}
-            onChange={handleFrontChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleFormControlTextarea1" className="form-label">
-            Back
-          </label>
-          <textarea
-            className="form-control"
-            rows="2"
-            placeholder="Back side of card"
-            value={backText}
-            onChange={handleBackChange}
-          ></textarea>
-        </div>
-
-        <Link to={`/decks/${deckId}`} className="btn btn-secondary">
-          {``} {``} Cancel
-        </Link>
-        <button onClick={handleEditCard} className="btn btn-primary">
-          {``} {``} Save
-        </button>
-      </form>
+      
+      <Form 
+         handleFrontChange={handleFrontChange}
+         handleBackChange={handleBackChange}
+         frontText={frontText}
+         backText={backText}
+         handleOnSave={handleEditCard} 
+         deckId={deckId}
+         /> 
     </div>
   );
 }

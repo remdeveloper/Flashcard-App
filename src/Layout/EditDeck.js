@@ -72,7 +72,7 @@ function EditDeck(props) {
         <Link to={`/decks/${deckId}`} className="btn btn-secondary">
           {``} {``} Cancel
         </Link>
-        <Link to="/decks/:id" className="btn btn-primary">
+        <Link to={`/decks/${deckId}`} className="btn btn-primary">
           {``} {``} Submit
         </Link>
       </form>

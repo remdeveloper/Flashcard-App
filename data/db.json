@@ -88,6 +88,18 @@
       "back": "asdfds",
       "deckId": 4,
       "id": 12
+    },
+    {
+      "front": "asdffd",
+      "back": "afdsasfd",
+      "deckId": 4,
+      "id": 13
+    },
+    {
+      "id": 14,
+      "front": "adding card",
+      "back": "1234",
+      "deckId": 4
     }
   ]
 }
