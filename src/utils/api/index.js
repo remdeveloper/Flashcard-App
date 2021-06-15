@@ -1,3 +1,9 @@
+import url from "./db.json"
+import jsonData from './db.json';
+import { cloneDeep } from 'lodash';
+const load = () => cloneDeep(jsonData);
+console.log(load,'Load')
+
 /**
  * Defines the base URL for the API.
  * The default values is overridden by the `API_BASE_URL` environment variable.
@@ -38,17 +44,25 @@ function stripCards(deck) {
  *  a promise that resolves to the `json` data or an error.
  *  If the response is not in the 200 - 399 range the promise is rejected.
  */
-const url = require("../../../data/db.json")
+url.map((data)=>{
+  console.log(data,'data map')
+})
 console.log('this is line 42', url)
+
+
+const loadData = () => JSON.parse(JSON.stringify(jsonData));
+console.log(loadData, 'loaddata')
+
 async function fetchJson(url, options) {
   try {
-  
-
-    const response = await fetch("./db.json", options);
+    const response = await fetch("./db.json" , options);
+    console.log('response.data',response.data.json())
     if (response.status < 200 || response.status > 399) {
       throw new Error(`${response.status} - ${response.statusText}`);
     }
-    return await response.json();
+   // return await response.json();
+   await response.json()
+  //  const data = 
   } catch (error) {
     if (error.name !== "AbortError") {
       throw error;
