@@ -38,13 +38,13 @@ function stripCards(deck) {
  *  a promise that resolves to the `json` data or an error.
  *  If the response is not in the 200 - 399 range the promise is rejected.
  */
-const url = "../../data/db.json"
-
+const url = require("../../../data/db.json")
+console.log('this is line 42', url)
 async function fetchJson(url, options) {
   try {
-    url = "../../data/db.json"
-    console.log('this is line 46', url)
-    const response = await fetch(url, options);
+  
+
+    const response = await fetch("./db.json", options);
     if (response.status < 200 || response.status > 399) {
       throw new Error(`${response.status} - ${response.statusText}`);
     }
