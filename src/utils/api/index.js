@@ -2,8 +2,8 @@
  * Defines the base URL for the API.
  * The default values is overridden by the `API_BASE_URL` environment variable.
  */
-const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:5000";
-
+//const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:5000";
+const API_BASE_URL = "../../data/db.json"
 /**
  * Defines the default headers for these functions to work with `json-server`
  */
@@ -38,7 +38,9 @@ function stripCards(deck) {
  *  a promise that resolves to the `json` data or an error.
  *  If the response is not in the 200 - 399 range the promise is rejected.
  */
-async function fetchJson(url, options) {
+const url = "../../data/db.json"
+
+async function fetchJson(options) {
   try {
     const response = await fetch(url, options);
     if (response.status < 200 || response.status > 399) {
